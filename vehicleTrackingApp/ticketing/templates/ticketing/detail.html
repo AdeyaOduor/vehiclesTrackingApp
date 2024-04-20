@@ -1,0 +1,26 @@
+{% extends 'add_vehicles/base.html' %}
+
+{% block title %}Ticketing{% endblock %}
+{% block content %}
+<h1 class="mb-6 text-3xl">Ticketing</h1>
+
+<div class="space-y-6">
+     {% for ticketing in ticketing.tickets.all %}
+         
+             <div class="p-6 flex {% if ticket.created_by == request.user %}bg-blue-120{% else %}bg-gray-100{% endif %}rounded-xl">
+                 <div>
+                     <p class="mb-4"><strong>{{ ticket.created_by.username }}</strong> | {{ ticket.created_at }}</p>
+                     <p{{ ticket.ticketing }}</p>
+                     
+                 </div>
+             </div>
+             
+     {% endfor %}
+</div>
+<form method="post" action="." class="mt-5"
+    {% csrf_token %}
+    
+    {{ form.as_p}}
+    <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white"> Submit </button>
+</form>
+{% endblock %}

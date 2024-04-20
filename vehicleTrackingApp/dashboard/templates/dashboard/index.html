@@ -1,0 +1,42 @@
+{% extends 'add_vehicles/base.html' %}
+
+{% block title %} Dashboard {% end block %} 
+
+{% block content %}
+    <div class= "mt-6 px-6" py-12 bg-gray-100 rounded-xl>
+         <h2 class="mb-12 text-2xl text-center"> My vehicles </h2>
+         <div class="grid grid-cols-3 gap-3">
+              {% for vehicle in vehicles %}
+                  <div>
+                     <a href="{% url 'vehicles:detail' vehicles.id %}">
+                        <div>
+                             <img src="{{vehicles.image.url }}" class="rounded-t-xl">
+                        </div>
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ vehicles.make}}</h2>
+                            <p class="text-gray-500"> registration: {{vehicle.registration}}</p> 
+                        </div>
+                        
+                     </a>
+                  </div>
+              {% endfor %}
+         </div>
+    </div>
+    
+    <div class= "mt-6 px-6" py-12 bg-gray-100 rounded-xl>
+         <h2 class="mb-12 text-2xl text-center"> Categories </h2>
+         <div class="grid grid-cols-3 gap-3">
+              {% for Category in Categories %}
+                  <div>
+                     <a href="#">
+                        <div class="p-6 bg-white rounded-b-xl">
+                            <h2 class="text-2xl">{{ category.make}}</h2>
+                            <p class="text-gray-500">{{category.vehicles.count}} vehicles </p> 
+                        </div>
+                        
+                     </a>
+                  </div>
+              {% endfor %}
+         </div>
+    </div> 
+{% endblock %}
