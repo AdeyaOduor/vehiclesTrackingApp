@@ -1,4 +1,4 @@
-# Inside Terminal, check version and install python packages
+# Inside Terminal,
 python3 --version
 sudo apt update
 sudo apt install python3-pip
@@ -43,3 +43,7 @@ INSTALLED_APPS = [
     STATIC_URL = 'media/'
     MEDIA_ROOT = BASE_DIR / 'media' # creates media folder inside the root
 ]
+
+python3 ./vehicleTrackingApp/manage.py makemigrations
+python3 ./vehicleTrackingApp/manage.py migrate
+
