@@ -46,4 +46,5 @@ INSTALLED_APPS = [
 
 python3 ./vehicleTrackingApp/manage.py makemigrations
 python3 ./vehicleTrackingApp/manage.py migrate
+python3 ./vehicleTrackingApp/manage.py createsuperuser
 
