@@ -10,7 +10,7 @@ python3 -m venv myenv # create a virtual environment for the project
 source myenv/bin/activate # activate the virtual environment
 pip install django # install django
 django-admin startproject vehicleTrackingApp # start django project
-python3 manage.py runserver
+
 python3 ./vehicleTrackingApp/manage.py runserver
 # go to the browser http://127.0.0.1.8000/ to Test if django project is properely setup 
 
