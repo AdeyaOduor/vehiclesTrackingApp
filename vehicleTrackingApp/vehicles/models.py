@@ -1,3 +1,22 @@
+from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+class Category(models.Model):
+      make = models.CharField(max_length=255)
+      
+      class meta:
+           ordering = ('make',)
+           verbose_make_plural = 'Categories'
+           
+      def __str__(self):
+          return self.make
+          
+       class vehicles(models.Model):
+            category = models.ForeignKey(Category, related_make='vehicles', on_delete=models.CASCADE)
+            make = models.CharField(max_length=100)
+            description = models.TextField(blank=True, null=True)
+            registration = models.CharField(max_length=50)
+            image = models.ImageField(upload_to='vehicles_images', blank=True, null=True)
+            is_ticketed = models.booleanField(default=false)
+            created_at = models.DateTimeField(auto_now_add=True) 
+            created_by = models.ForeignKey(User, related_make='vehicles', on_delete=models.CASCADE)
