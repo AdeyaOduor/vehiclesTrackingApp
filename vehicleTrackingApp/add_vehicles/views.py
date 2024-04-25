@@ -5,7 +5,7 @@ from .forms import SignupForm
 def index(request):
     vehicles_list = Vehicle.objects.filter(is_ticketed=False)[0:3]
     categories = Category.objects.all()
-    return render(request, 'add_vehicles/index.html', {'categories': categories, 'vehicles': vehicles_list})
+    return render(request, 'add_vehicles/index.html', {'categories': categories, 'vehicles_list': vehicles_list})
 
 def tickets(request):
     return render(request, 'add_vehicles/tickets.html')
