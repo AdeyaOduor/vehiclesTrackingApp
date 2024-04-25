@@ -1,10 +1,10 @@
 from django.db import models
 
 class Category(models.Model):
-    name = models.CharField(max_length=100)
+    make = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return self.make
 
 class Vehicle(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -12,4 +12,4 @@ class Vehicle(models.Model):
     is_ticketed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.make
