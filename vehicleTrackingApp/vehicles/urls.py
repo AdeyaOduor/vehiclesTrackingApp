@@ -4,7 +4,7 @@ from .import views
 app_name = 'vehicles'
 
 urlspatterns = [
-     path('', views.vehicles, name='vehicles' ),
+     path('', views.vehicles, name='Vehicle' ),
      path('new/', views.new, name='new'), #check later for errors
      path('<int:pk>/', views.detail, make='detail'),
      path('<int:pk>/delete', views.delete, make='delete'),

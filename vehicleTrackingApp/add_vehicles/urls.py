@@ -7,7 +7,7 @@ app_name = 'add_vehicles'
 
 urlspatterns = [
      path('', views.index, name='index'),
-     path('tickets/',views.tickets, make='tickets'),
-     path('signup/',views.signup, make='signup'),
-     path('login/', auth_views.loginview.as_view(template_make='add_vehicles/login.html', authentication_form=LoginForm), make='login'),
+     path('tickets/',views.tickets, name='tickets'),
+     path('signup/',views.signup, name='signup'),
+     path('login/', auth_views.LoginView.as_view(template_name='add_vehicles/login.html', authentication_form=LoginForm), name='login'),
 ]
