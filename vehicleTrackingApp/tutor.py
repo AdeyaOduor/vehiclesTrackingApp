@@ -121,3 +121,46 @@ class Fueling(models.Model):
     
     def __str__(self):
         return f"{self.vehicle.license_plate} - {self.liters}L"
+
+
+# forms.py
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from .models import CustomUser, Vehicle, WorkTicket, MaintenanceSchedule, Fueling
+
+class CustomUserCreationForm(UserCreationForm):
+    class Meta:
+        model = CustomUser
+        fields = ('username', 'email', 'user_type', 'county', 'subcounty', 'phone_number')
+
+class VehicleForm(forms.ModelForm):
+    class Meta:
+        model = Vehicle
+        fields = '__all__'
+        exclude = ['current_driver']
+
+class WorkTicketForm(forms.ModelForm):
+    class Meta:
+        model = WorkTicket
+        fields = ['ticket_type', 'description', 'scheduled_date']
+        widgets = {
+            'scheduled_date': forms.DateInput(attrs={'type': 'date'}),
+            'description': forms.Textarea(attrs={'rows': 3}),
+        }
+
+class MaintenanceScheduleForm(forms.ModelForm):
+    class Meta:
+        model = MaintenanceSchedule
+        fields = ['maintenance_type', 'description', 'scheduled_date']
+        widgets = {
+            'scheduled_date': forms.DateInput(attrs={'type': 'date'}),
+            'description': forms.Textarea(attrs={'rows': 3}),
+        }
+
+class FuelingForm(forms.ModelForm):
+    class Meta:
+        model = Fueling
+        fields = ['liters', 'cost', 'mileage', 'station_name', 'station_location']
+        widgets = {
+            'date': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+        }
