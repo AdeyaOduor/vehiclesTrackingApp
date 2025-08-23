@@ -21,6 +21,6 @@ admin.site.register(WorkTicket)
 admin.site.register(MaintenanceSchedule)
 admin.site.register(Fueling)
 admin.site.register(Category)
-# admin.site.register(Vehicle)
+admin.site.register(Vehicle)
 
 
