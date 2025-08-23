@@ -1,12 +1,6 @@
-# from django.contrib import admin
-# from .models import Category, Vehicle
-
-# admin.site.register(Category)
-# admin.site.register(Vehicle)
-
-# admin.py
 from django.contrib import admin
 from .models import *
+# from .models import Category, Vehicle
 
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
@@ -26,3 +20,7 @@ class LocationAdmin(admin.ModelAdmin):
 admin.site.register(WorkTicket)
 admin.site.register(MaintenanceSchedule)
 admin.site.register(Fueling)
+admin.site.register(Category)
+# admin.site.register(Vehicle)
+
+
