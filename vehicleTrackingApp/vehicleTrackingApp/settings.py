@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'dashboard',
     'ticketing',
     'vehicles',
+    'vehicle_tracking',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +58,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'vehicleTrackingApp.urls'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'login'
 
 TEMPLATES = [
     {
